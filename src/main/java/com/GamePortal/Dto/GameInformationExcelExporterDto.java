@@ -73,7 +73,6 @@ public class GameInformationExcelExporterDto {
             createCell(row, columnCount++, gameInformation.getGameId().intValue(), style);
             createCell(row, columnCount++, gameInformation.getGameName(), style);
             createCell(row, columnCount++, gameInformation.getGameCost(), style);
-            //createCell(row, columnCount++, gameInformation.getUsersGame(), style);
 
             for(UserInformation userInformation : gameInformation.getUsersGame()){
                 createCell(row, columnCount++, userInformation.getUserName(), style);
