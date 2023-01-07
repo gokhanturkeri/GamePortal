@@ -2,7 +2,7 @@ package com.GamePortal.Controller;
 
 import com.GamePortal.Dto.GameInformationExcelExporterDto;
 import com.GamePortal.Entity.GameInformation;
-import com.GamePortal.Service.ExcelExportService;
+import com.GamePortal.Service.GetDbInformationForExcelImportService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +18,7 @@ import java.util.List;
 public class GameInformationExcelExporterController {
 
     @Autowired
-    private ExcelExportService excelExportService;
+    private GetDbInformationForExcelImportService getDbInformationForExcelImportService;
 
     @GetMapping("games/export/excel")
     public  void exportToExcel(HttpServletResponse response) throws IOException {
@@ -30,7 +30,7 @@ public class GameInformationExcelExporterController {
         String headerValue = "attachment; filename=gameinformation_" + currentDataType + ".xlsx";
         response.setHeader(headerKey, headerValue);
 
-        List<GameInformation> listGameInformation = excelExportService.listAll();
+        List<GameInformation> listGameInformation = getDbInformationForExcelImportService.listAll();
 
         GameInformationExcelExporterDto gameInformationExcelExporterDto = new GameInformationExcelExporterDto(listGameInformation);
 
