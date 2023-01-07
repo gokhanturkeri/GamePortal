@@ -9,25 +9,25 @@ import org.springframework.stereotype.Service;
 public class UserInformationService {
 
     @Autowired(required = false)
-    private IUserInformationRepository UserInformationRepository;
+    private IUserInformationRepository userInformationRepository;
 
     public String addUserInformation(UserInformation userInformation) {
-        UserInformationRepository.save(userInformation);
+        userInformationRepository.save(userInformation);
         return "Yeni kullanıcı veri tabanına kaydedildi";
     }
 
     public UserInformation getUserInformation(Long id){
-        return UserInformationRepository.findById(id).get();
+        return userInformationRepository.findById(id).get();
     }
 
     public String deleteUserInformation(Long id){
-        UserInformation userInformation = UserInformationRepository.getById(id);
-        UserInformationRepository.delete(userInformation);
+        UserInformation userInformation = userInformationRepository.getById(id);
+        userInformationRepository.delete(userInformation);
         return "Kullanıcı veri tabanından silindi" + "==>" + id;
     }
 
     public String updateUserInformation(UserInformation userInformation){
-        UserInformationRepository.save(userInformation);
+        userInformationRepository.save(userInformation);
         return userInformation.getUserId() + "==>" + "Kullanıcı veri tabanına bilgileri güncellendi";
     }
 

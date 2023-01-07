@@ -2,7 +2,6 @@ package com.GamePortal.Service;
 
 import com.GamePortal.Entity.GameInformation;
 import com.GamePortal.Repository.IGameExcelExportRepository;
-import com.GamePortal.Repository.IGameInformationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -20,8 +19,4 @@ public class ExcelExportService {
     public List<GameInformation> listAll(){
         return excelExportRepository.findAll(Sort.by("gameName").ascending());
     }
-
-
-
-
 }

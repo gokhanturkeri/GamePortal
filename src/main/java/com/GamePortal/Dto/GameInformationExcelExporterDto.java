@@ -2,11 +2,9 @@ package com.GamePortal.Dto;
 
 
 import com.GamePortal.Entity.GameInformation;
-import jakarta.servlet.Servlet;
+import com.GamePortal.Entity.UserInformation;
 import jakarta.servlet.ServletOutputStream;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
-import org.apache.catalina.User;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
@@ -15,9 +13,9 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.apache.poi.ss.util.CellUtil.createCell;
 
 public class GameInformationExcelExporterDto {
     private XSSFWorkbook workbook;
@@ -75,8 +73,13 @@ public class GameInformationExcelExporterDto {
             createCell(row, columnCount++, gameInformation.getGameId().intValue(), style);
             createCell(row, columnCount++, gameInformation.getGameName(), style);
             createCell(row, columnCount++, gameInformation.getGameCost(), style);
-            createCell(row, columnCount++, gameInformation.getUsersGame().toString(), style);
+            //createCell(row, columnCount++, gameInformation.getUsersGame(), style);
+
+            for(UserInformation userInformation : gameInformation.getUsersGame()){
+                createCell(row, columnCount++, userInformation.getUserName(), style);
+            }
         }
+
     }
 
     public void export(HttpServletResponse response) throws IOException {

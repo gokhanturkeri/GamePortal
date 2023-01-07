@@ -6,7 +6,6 @@ import com.GamePortal.Repository.IGameInformationRepository;
 import com.GamePortal.Repository.IUserInformationRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/users/games")

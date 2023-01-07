@@ -25,7 +25,7 @@ public class GameInformation {
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
 
-    @JsonManagedReference
+    //@JsonManagedReference
     private Set<UserInformation> usersGame = new HashSet<>();
 
     public GameInformation() {
@@ -65,10 +65,6 @@ public class GameInformation {
 
     public void setGameCost(int gameCost) {
         this.gameCost = gameCost;
-    }
-
-    public Set<UserInformation> getUsers() {
-        return usersGame;
     }
 
     public void usersGame(UserInformation user) {
