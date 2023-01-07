@@ -18,7 +18,7 @@ public class GameInformation {
     @Column
     private int gameCost;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @JoinTable(
             name = "user_game",
             joinColumns = {@JoinColumn(name = "game_id")},
@@ -51,12 +51,12 @@ public class GameInformation {
         this.gameId = gameId;
     }
 
-    public String getGame_Name() {
+    public String getGameName() {
         return gameName;
     }
 
-    public void setGame_Name(String game_Name) {
-        this.gameName = game_Name;
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 
     public int getGameCost() {
@@ -66,11 +66,15 @@ public class GameInformation {
     public void setGameCost(int gameCost) {
         this.gameCost = gameCost;
     }
+
     public Set<UserInformation> getUsers() {
         return usersGame;
     }
 
     public void usersGame(UserInformation user) {
         usersGame.add(user);
+    }
+    public Set<UserInformation> getUsersGame() {
+        return usersGame;
     }
 }
