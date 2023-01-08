@@ -73,4 +73,8 @@ public class GameInformation {
     public Set<UserInformation> getUsersGame() {
         return usersGame;
     }
+
+    public String toString(){
+        return "GameInformation[gameId=" +gameId +",gameName=" + gameName + ",gameCost=" +gameCost +"]";
+    }
 }

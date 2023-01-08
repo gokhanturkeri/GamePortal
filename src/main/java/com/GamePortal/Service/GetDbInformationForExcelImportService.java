@@ -1,7 +1,7 @@
 package com.GamePortal.Service;
 
 import com.GamePortal.Entity.GameInformation;
-import com.GamePortal.Repository.IGameExcelExportRepository;
+import com.GamePortal.Repository.IGameInformationExcelExportRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -14,7 +14,7 @@ import java.util.List;
 public class GetDbInformationForExcelImportService {
 
     @Autowired
-    private IGameExcelExportRepository excelExportRepository;
+    private IGameInformationExcelExportRepository excelExportRepository;
 
     public List<GameInformation> listAll(){
         return excelExportRepository.findAll(Sort.by("gameName").ascending());

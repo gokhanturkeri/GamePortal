@@ -33,7 +33,7 @@ public class UsersGameController {
             user.setUserCredit(user.getUserCredit() - game.getGameCost());
         }
         else{
-            return null;
+            System.out.println("Kullanıcının yeterli kredisi bulunmamaktadır.");;
         }
 
         return gameInformationRepository.save(game);
